@@ -9,8 +9,27 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var currentValue = 0.4
+    
     var body: some View {
-        Text("Hello World")
+        VStack {
+            HStack {
+                Image(systemName: "heart")
+                    .resizable()
+                    .frame(width: 30, height: 30)
+                    .foregroundColor(.red)
+                Slider(value: $currentValue, in: 0...10)
+                    .accentColor(.red)
+                    .padding()
+                Image(systemName: "heart.fill")
+                    .resizable()
+                    .frame(width: 30, height: 30)
+                    .foregroundColor(.red)
+            }
+            .padding()
+            Text("Current value: \(Int(currentValue))")
+        }
     }
 }
 
